@@ -3,4 +3,6 @@ Repositório do projeto de Sistema Bancário do curso Formação Python Develope
 
 Projeto de um sistema bancário para o curso de Formação Python Develper da DIO, primeira versão.
 
-Nesta primeira versão, programou-se as funções de depósito, saque e extrato.
+Nesta primeira versão foi implementada as funções de depósito, saque e extrato.
+
+Na segunda versão foi utilizado funções em python para as operações de depósito, saque e extrato e implementada também as operações de cadastro de usu
