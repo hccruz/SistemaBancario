@@ -1,4 +1,4 @@
-def Deposito(saldo, dep, extrato):
+def Deposito(saldo, dep, extrato, /):
     if dep < 0:
         print('Operação não efetuada. Não aceitamos valores negativos.')
     else:
@@ -8,7 +8,7 @@ def Deposito(saldo, dep, extrato):
     return saldo, extrato
 
 
-def Saque(sal=0, saque=0, ext="", lim=0, num_saques=0, lim_saques=0):
+def Saque(*, sal, saque, ext, lim, num_saques, lim_saques):
     if numeros_saques < LIMITE_SAQUES:
         if saque < 0:
             print('Operação não efetuada. Não aceitamos valores negativos')
@@ -27,7 +27,7 @@ def Saque(sal=0, saque=0, ext="", lim=0, num_saques=0, lim_saques=0):
     return sal, ext, num_saques
 
 
-def Extrato(saldo, ext=''):
+def Extrato(saldo, /, *, ext):
     print('Não foram realizadas movimentações.' if not extrato else extrato)
     print(f'Saldo atual: R$ {saldo:.2f}')
 
@@ -82,8 +82,14 @@ while True:
     elif opcao == 's':
         print("Saque")
         saq = float(input('Qual o valor que deseja sacar?: '))
-        saldo, extrato, numeros_saques = Saque(sal = saldo, saque = saq, ext = extrato, lim = limite, num_saques = numeros_saques,
-         lim_saques = LIMITE_SAQUES)
+        saldo, extrato, numeros_saques = Saque(
+            sal = saldo, 
+            saque = saq, 
+            ext = extrato, 
+            lim = limite, 
+            num_saques = numeros_saques,
+            lim_saques = LIMITE_SAQUES
+        )
         
     elif opcao == 'e':
         print("==========Extrato==========")
@@ -116,6 +122,7 @@ while True:
                 break
         else:
             print('Digite um CPF cadastrado ou faça o cadastro de usuário!!!')
+            
     elif opcao == 'q':
         break
 
